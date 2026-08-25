@@ -1,29 +1,31 @@
 .area-card {
   display: flex;
   flex-direction: column;
-  padding: 1rem 1.25rem;
+  padding: 1.125rem 1.25rem;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   text-decoration: none;
   color: inherit;
-  transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .area-card:hover {
-  border-color: var(--color-accent);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  border-color: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 .area-card__name {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: var(--color-text);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.2rem;
+  letter-spacing: -0.01em;
 }
 
 .area-card__meta {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--color-text-muted);
+  font-weight: 400;
 }

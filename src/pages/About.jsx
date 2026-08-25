@@ -5,8 +5,8 @@ import site from '../data/site'
 import './About.css'
 
 const fadeIn = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] } },
 }
 
 export default function About() {
@@ -74,7 +74,7 @@ export default function About() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeIn}
-            transition={{ delay: 0, duration: 0.4 }}
+            transition={{ delay: 0, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
           >
             <h3>Genuine Parts Only</h3>
             <p>We never compromise on part quality. Every part we sell meets OEM standards for fit, finish, and durability.</p>
@@ -85,7 +85,7 @@ export default function About() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeIn}
-            transition={{ delay: 0.1, duration: 0.4 }}
+            transition={{ delay: 0.1, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
           >
             <h3>Honest Pricing</h3>
             <p>No hidden fees, no unnecessary upselling. We give you a fair quote and stick to it.</p>
@@ -96,7 +96,7 @@ export default function About() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeIn}
-            transition={{ delay: 0.2, duration: 0.4 }}
+            transition={{ delay: 0.2, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
           >
             <h3>Expert Mechanics</h3>
             <p>Our team is trained on all major brands and stays current with the latest automotive technology.</p>
@@ -107,7 +107,7 @@ export default function About() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeIn}
-            transition={{ delay: 0.3, duration: 0.4 }}
+            transition={{ delay: 0.3, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
           >
             <h3>Customer First</h3>
             <p>Your satisfaction is our reputation. We build long-term relationships, not just one-time transactions.</p>

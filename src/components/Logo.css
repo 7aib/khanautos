@@ -6,29 +6,28 @@
 }
 
 .logo__text {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: 900;
-  font-size: 1.5rem;
+  font-family: 'Inter', -apple-system, system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 1.15rem;
   color: var(--color-text);
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
+  letter-spacing: -0.04em;
 }
 
 .logo__accent {
   display: block;
   width: 100%;
-  height: 3px;
+  height: 2px;
   background: var(--color-accent);
-  margin-top: 2px;
+  margin-top: 3px;
   border-radius: 2px;
 }
 
 .logo--header .logo__text {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
 }
 
 @media (min-width: 768px) {
   .logo--header .logo__text {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 }

@@ -10,9 +10,18 @@ import areas from '../data/areas'
 import './Home.css'
 
 const fadeIn = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] } },
 }
+
+const stagger = (i) => ({
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.08, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] },
+  },
+})
 
 const services = [
   {
@@ -104,7 +113,7 @@ export default function Home() {
           variants={fadeIn}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="hero__title">Genuine Auto Spare Parts & Expert Car Tuning</h1>
+          <h1 className="hero__title">Genuine Auto Spare Parts<br />& Expert Car Tuning</h1>
           <p className="hero__subtitle">{site.tagline}</p>
           <p className="hero__location">Wah Cantt, Punjab, Pakistan</p>
           <div className="hero__actions">
@@ -133,7 +142,7 @@ export default function Home() {
               whileInView="visible"
               viewport={{ once: true, margin: '-50px' }}
               variants={fadeIn}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
+              transition={{ delay: i * 0.08, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
             >
               <ServiceCard {...s} />
             </motion.div>
