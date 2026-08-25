@@ -100,10 +100,12 @@ export default function Home() {
       {/* Hero */}
       <section className="hero">
         <div className="hero__bg">
-          <div className="hero__placeholder">
-            {/* TODO: Replace with real workshop image */}
-            <span>Workshop Photo Placeholder</span>
-          </div>
+          <img
+            src="/images/hero-workshop.jpg"
+            alt="Auto spare parts workshop in Wah Cantt"
+            className="hero__img"
+            loading="eager"
+          />
           <div className="hero__overlay" />
         </div>
         <motion.div

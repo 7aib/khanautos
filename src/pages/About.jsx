@@ -58,10 +58,13 @@ export default function About() {
           </div>
 
           <div className="about-image">
-            <div className="about-image__placeholder">
-              {/* TODO: Replace with real shop front photo */}
-              Shop Front Photo Placeholder
-            </div>
+            <img
+              src="/images/about-shop.jpg"
+              alt="Khan Autos workshop front in Wah Cantt"
+              loading="lazy"
+              width="800"
+              height="600"
+            />
           </div>
         </motion.div>
       </Section>

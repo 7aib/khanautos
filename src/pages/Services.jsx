@@ -8,6 +8,13 @@ const fadeIn = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] } },
 }
 
+const serviceImages = {
+  'spare-parts': '/images/service-parts.jpg',
+  servicing: '/images/service-servicing.jpg',
+  tuning: '/images/service-tuning.jpg',
+  electrical: '/images/service-electrical.jpg',
+}
+
 const serviceDetails = [
   {
     id: 'spare-parts',
@@ -104,7 +111,13 @@ export default function Services() {
             transition={{ duration: 0.5 }}
           >
             <div className="service-detail__image">
-              <div className="service-detail__placeholder">{service.placeholder}</div>
+              <img
+                src={serviceImages[service.id]}
+                alt={service.title}
+                loading="lazy"
+                width="800"
+                height="600"
+              />
             </div>
             <div className="service-detail__content">
               <h2 className="service-detail__title">{service.title}</h2>
