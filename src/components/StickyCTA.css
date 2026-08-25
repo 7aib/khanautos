@@ -1,0 +1,55 @@
+.sticky-cta {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 90;
+  background: rgba(17, 18, 20, 0.97);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--color-border);
+  padding: 0.5rem 0.75rem;
+  gap: 0.5rem;
+}
+
+.sticky-cta__btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  transition: transform 0.1s, filter 0.2s;
+}
+
+.sticky-cta__btn:active {
+  transform: scale(0.97);
+}
+
+.sticky-cta__btn--call {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.sticky-cta__btn--call:hover {
+  filter: brightness(1.1);
+}
+
+.sticky-cta__btn--whatsapp {
+  background: #25d366;
+  color: #fff;
+}
+
+.sticky-cta__btn--whatsapp:hover {
+  filter: brightness(1.1);
+}
+
+@media (min-width: 768px) {
+  .sticky-cta {
+    display: none;
+  }
+}

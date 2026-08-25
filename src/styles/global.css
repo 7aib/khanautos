@@ -1,0 +1,79 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-bg: #111214;
+  --color-surface: #1a1a1e;
+  --color-border: #2a2a2e;
+  --color-text: #f4f4f2;
+  --color-text-secondary: #b0b0aa;
+  --color-text-muted: #6e6e68;
+  --color-accent: #e2711d;
+  --color-accent-hover: #d4650f;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#root > main {
+  flex: 1;
+}
+
+/* Bottom padding for mobile sticky CTA */
+@media (max-width: 767px) {
+  #root {
+    padding-bottom: 4rem;
+  }
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
