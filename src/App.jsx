@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import StickyCTA from './components/StickyCTA'
+import FloatingCall from './components/FloatingCall'
 import Home from './pages/Home'
 import Services from './pages/Services'
 import AreasIndex from './pages/AreasIndex'
@@ -37,6 +38,7 @@ function App() {
         </main>
         <Footer />
         <StickyCTA />
+        <FloatingCall />
       </BrowserRouter>
     </HelmetProvider>
   )

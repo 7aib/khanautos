@@ -1,0 +1,38 @@
+.floating-call {
+  position: fixed;
+  bottom: 5.5rem;
+  right: 1.25rem;
+  z-index: 80;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(226, 113, 29, 0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+}
+
+.floating-call:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 28px rgba(226, 113, 29, 0.55);
+}
+
+.floating-call:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 767px) {
+  .floating-call {
+    bottom: 5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .floating-call {
+    bottom: 2rem;
+  }
+}
