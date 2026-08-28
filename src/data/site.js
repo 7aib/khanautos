@@ -1,9 +1,9 @@
 const site = {
   name: 'Khan Autos',
   tagline: 'Genuine Auto Spare Parts & Expert Car Tuning in Wah Cantt',
-  phone: '+92 300 0000000',
-  phoneRaw: '923000000000',
-  whatsapp: '923000000000',
+  phone: '+92 3083 888872',
+  phoneRaw: '923083888872',
+  whatsapp: '923083888872',
   email: 'info@khanautos.pk',
   address: 'Wah Cantt, Punjab, Pakistan',
   addressFull: 'Main GT Road, Wah Cantt, Punjab 47040, Pakistan',
