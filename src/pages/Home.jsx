@@ -203,7 +203,7 @@ export default function Home() {
             <p><strong>WhatsApp:</strong> <a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener noreferrer">Message Us</a></p>
             <p><strong>Address:</strong> {site.addressFull}</p>
             <p><strong>Hours:</strong> {site.openingHours}</p>
-            <a href={site.mapsUrl} className="hero__btn hero__btn--primary" target="_blank" rel="noopener noreferrer" style={{ marginTop: '1rem', display: 'inline-flex' }}>
+            <a href={site.mapsUrl} className="home-map-btn" target="_blank" rel="noopener noreferrer">
               Get Directions
             </a>
           </div>
