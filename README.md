@@ -30,6 +30,33 @@ npm run preview   # Preview the production build locally
 />
 ```
 
+## Displaying Real Google Reviews
+
+The homepage reviews section fetches your real Google reviews live, for free, using the Places API on the same API key in `.env`.
+
+### 1. Find your Google Place ID
+Search your business on Google Maps, open the URL, and the Place ID is the long `ChI...` string. Or use Google's [Place ID finder](https://developers.google.com/maps/documentation/places/web-service/place-id):
+1. Go to the Place ID finder
+2. Search your business name + "Wah Cantt"
+3. Copy the `place_id` value (starts with `ChIJ...`)
+
+### 2. Enable the Places API (New)
+In your Google Cloud Console:
+1. Go to "APIs & Services" → "Library"
+2. Enable **"Places API (New)"** (in addition to Maps JavaScript API / Embed API)
+3. Your API key in `.env` must be unrestricted or include this API
+
+### 3. Add the Place ID to the site
+
+```js
+// src/data/site.js
+placeId: 'ChIJxxxxxxxxxxxxxxxxxxxxxxxxx',  // ← Paste yours here
+```
+
+That's it — the reviews will load automatically on the homepage. If the Place ID is missing or the API fails, the reviews section quietly hides itself (no broken UI).
+
+> Note: Google returns up to 5 reviews and requires "Powered by Google" attribution, which the component shows automatically.
+
 ## Updating Phone Number, Business Hours & Contact Info
 
 All business info is in **one file**: `src/data/site.js`

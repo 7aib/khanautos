@@ -5,6 +5,7 @@ import Section from '../components/Section'
 import ServiceCard from '../components/ServiceCard'
 import AreaCard from '../components/AreaCard'
 import MapEmbed from '../components/MapEmbed'
+import GoogleReviews from '../components/GoogleReviews'
 import site from '../data/site'
 import areas from '../data/areas'
 import './Home.css'
@@ -210,22 +211,8 @@ export default function Home() {
       </Section>
 
       {/* Reviews */}
-      <Section title="What Customers Say" subtitle="Hear from drivers who trust Khan Autos">
-        <div className="reviews-grid">
-          <div className="review-card">
-            <p className="review-card__text">"Best spare parts shop in Wah Cantt. Genuine parts, fair prices, and very helpful staff."</p>
-            <p className="review-card__author">— Satisfied Customer</p>
-          </div>
-          <div className="review-card">
-            <p className="review-card__text">"Got my car tuned here. The difference in performance was night and day. Highly recommend their tuning service."</p>
-            <p className="review-card__author">— Happy Customer</p>
-          </div>
-          <div className="review-card">
-            <p className="review-card__text">"Quick service and they had the exact part I needed in stock. Saved me a trip to Rawalpindi."</p>
-            <p className="review-card__author">— Local Resident</p>
-          </div>
-        </div>
-        {/* TODO: Connect to Google Reviews API or add real testimonials */}
+      <Section title="What Customers Say" subtitle="Real reviews from drivers who trust Khan Autos">
+        <GoogleReviews />
       </Section>
     </>
   )

@@ -4,26 +4,27 @@ const site = {
   phone: '+92 3083 888872',
   phoneRaw: '923083888872',
   whatsapp: '923083888872',
-  email: 'info@khanautos.pk',
+  email: 'contact@khanautos.store',
   address: 'Wah Cantt, Punjab, Pakistan',
   addressFull: 'Main GT Road, Wah Cantt, Punjab 47040, Pakistan',
   coordinates: {
     lat: 33.7572152426913,
     lng: 72.7391839660532,
   },
-  openingHours: 'Mon–Sat: 9:00 AM – 8:00 PM',
+  openingHours: 'Sat-Thu: 9:00 AM – 9:00 PM',
   openingHoursSchema: [
-    'Mo-Sa 09:00-20:00',
+    'Sa-Th 09:00-21:00',
   ],
   priceRange: 'PKR',
   foundedYear: 2005,
   mapsUrl: 'https://maps.google.com/?q=33.7572152426913,72.7391839660532',
+  placeId: 'ChIJMXkFJACn3zgRhC6HGs7Bb7wQP4Q+VM6',
   social: {
     facebook: '#',
     instagram: '#',
     youtube: '#',
   },
-  siteUrl: 'https://khanautos.pk',
+  siteUrl: 'https://khanautos.store',
 }
 
 export default site
