@@ -19,6 +19,12 @@ const site = {
   foundedYear: 2005,
   mapsUrl: 'https://maps.google.com/?q=33.7572152426913,72.7391839660532',
   placeId: 'ChIJMXkFJACn3zgRhC6HGs7Bb7wQP4Q+VM6',
+  elfsight: {
+    appId: '433fb59c-5c4e-46fc-a3e1-9024fd37058d',
+    alias: '',
+    platformScript: 'https://elfsightcdn.com/platform.js',
+    useServiceCore: false,
+  },
   social: {
     facebook: '#',
     instagram: '#',

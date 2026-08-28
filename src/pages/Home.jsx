@@ -5,7 +5,7 @@ import Section from '../components/Section'
 import ServiceCard from '../components/ServiceCard'
 import AreaCard from '../components/AreaCard'
 import MapEmbed from '../components/MapEmbed'
-import GoogleReviews from '../components/GoogleReviews'
+import ElfsightWidget from '../components/ElfsightWidget'
 import site from '../data/site'
 import areas from '../data/areas'
 import './Home.css'
@@ -212,7 +212,7 @@ export default function Home() {
 
       {/* Reviews */}
       <Section title="What Customers Say" subtitle="Real reviews from drivers who trust Khan Autos">
-        <GoogleReviews />
+        <ElfsightWidget />
       </Section>
     </>
   )

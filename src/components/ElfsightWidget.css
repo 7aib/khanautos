@@ -1,0 +1,8 @@
+.elfsight-widget {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.elfsight-widget .elfsight-app-lazy {
+  visibility: visible;
+}

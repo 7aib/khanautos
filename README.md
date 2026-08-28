@@ -30,32 +30,36 @@ npm run preview   # Preview the production build locally
 />
 ```
 
-## Displaying Real Google Reviews
+## Displaying Google Reviews (Elfsight widget)
 
-The homepage reviews section fetches your real Google reviews live, for free, using the Places API on the same API key in `.env`.
+The homepage reviews section uses the **Elfsight Google Reviews** free widget.
 
-### 1. Find your Google Place ID
-Search your business on Google Maps, open the URL, and the Place ID is the long `ChI...` string. Or use Google's [Place ID finder](https://developers.google.com/maps/documentation/places/web-service/place-id):
-1. Go to the Place ID finder
-2. Search your business name + "Wah Cantt"
-3. Copy the `place_id` value (starts with `ChIJ...`)
+### 1. Create the widget on Elfsight
+1. Go to [elfsight.com](https://elfsight.com) and sign up (free plan available)
+2. Choose the **Google Reviews** widget
+3. Connect your Google Business Profile for "Khan Autos"
+4. Customize appearance to match the dark theme
+5. Click **Get the code** — it shows an embed snippet like:
 
-### 2. Enable the Places API (New)
-In your Google Cloud Console:
-1. Go to "APIs & Services" → "Library"
-2. Enable **"Places API (New)"** (in addition to Maps JavaScript API / Embed API)
-3. Your API key in `.env` must be unrestricted or include this API
+```html
+<div class="elfsight-app-YOUR-APP-ID" data-elfsight-app-lazy data-elfsight-app-alias="google-reviews"></div>
+```
 
-### 3. Add the Place ID to the site
+### 2. Add the app ID to the site
 
 ```js
 // src/data/site.js
-placeId: 'ChIJxxxxxxxxxxxxxxxxxxxxxxxxx',  // ← Paste yours here
+elfsight: {
+  appId: 'YOUR-APP-ID',        // ← Paste the app ID from the snippet here
+  alias: 'google-reviews',     // ← If your snippet has data-elfsight-app-alias
+  platformScript: 'https://static.elfsight.com/platform/platform.js',
+  useServiceCore: false,
+},
 ```
 
-That's it — the reviews will load automatically on the homepage. If the Place ID is missing or the API fails, the reviews section quietly hides itself (no broken UI).
+The Elfsight platform script loads automatically and the widget appears on the homepage. If `appId` is empty, the widget is skipped entirely.
 
-> Note: Google returns up to 5 reviews and requires "Powered by Google" attribution, which the component shows automatically.
+> The Elfsight free plan includes a small "Powered by Elfsight" badge — upgrading removes it.
 
 ## Updating Phone Number, Business Hours & Contact Info
 
