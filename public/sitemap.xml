@@ -1,107 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://khanautos.pk/</loc>
+    <loc>https://khanautos.store/</loc>
     <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <priority>1</priority>
   </url>
   <url>
-    <loc>https://khanautos.pk/services</loc>
+    <loc>https://khanautos.store/services</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://khanautos.pk/areas</loc>
+    <loc>https://khanautos.store/areas</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://khanautos.pk/areas/taxila</loc>
+    <loc>https://khanautos.store/areas/taxila</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://khanautos.pk/areas/hasan-abdal</loc>
+    <loc>https://khanautos.store/areas/hasan-abdal</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://khanautos.pk/areas/fateh-jang</loc>
+    <loc>https://khanautos.store/areas/fateh-jang</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://khanautos.pk/areas/ghurgushti</loc>
+    <loc>https://khanautos.store/areas/ghurgushti</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://khanautos.pk/areas/islamabad</loc>
+    <loc>https://khanautos.store/areas/islamabad</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://khanautos.pk/areas/hazro</loc>
+    <loc>https://khanautos.store/areas/hazro</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://khanautos.pk/areas/sanjwal</loc>
+    <loc>https://khanautos.store/areas/sanjwal</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://khanautos.pk/areas/haripur</loc>
+    <loc>https://khanautos.store/areas/haripur</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://khanautos.pk/areas/saidpur</loc>
+    <loc>https://khanautos.store/areas/saidpur</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://khanautos.pk/areas/topi</loc>
+    <loc>https://khanautos.store/areas/topi</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://khanautos.pk/areas/rawalpindi</loc>
+    <loc>https://khanautos.store/areas/rawalpindi</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://khanautos.pk/areas/kamra</loc>
+    <loc>https://khanautos.store/areas/kamra</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://khanautos.pk/areas/attock</loc>
+    <loc>https://khanautos.store/areas/attock</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://khanautos.pk/areas/khalabat</loc>
+    <loc>https://khanautos.store/areas/khalabat</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://khanautos.pk/areas/zaida</loc>
+    <loc>https://khanautos.store/areas/zaida</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://khanautos.pk/areas/swabi</loc>
+    <loc>https://khanautos.store/areas/swabi</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://khanautos.pk/about</loc>
+    <loc>https://khanautos.store/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://khanautos.pk/contact</loc>
+    <loc>https://khanautos.store/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
