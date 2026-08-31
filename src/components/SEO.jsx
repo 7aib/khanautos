@@ -5,7 +5,7 @@ export default function SEO({
   title,
   description,
   path = '/',
-  ogImage = '/og-default.jpg',
+  ogImage = '/images/logos/Logo Khan Autos.png',
   type = 'website',
 }) {
   const fullTitle = title

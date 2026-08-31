@@ -4,9 +4,14 @@ import './Logo.css'
 
 export default function Logo({ className = '' }) {
   return (
-    <Link to="/" className={`logo ${className}`}>
-      <span className="logo__text">{site.name}</span>
-      <span className="logo__accent" />
+    <Link to="/" className={`logo ${className}`} aria-label={`${site.name} — Home`}>
+      <img
+        src="/images/logos/Logo Khan Autos.png"
+        alt={site.name}
+        className="logo__img"
+        width="140"
+        height="40"
+      />
     </Link>
   )
 }
