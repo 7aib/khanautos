@@ -31,12 +31,42 @@ export default function AreaPage() {
 
   const directionsUrl = `https://www.google.com/maps/dir/${encodeURIComponent(area.name + ', Pakistan')}/${site.coordinates.lat},${site.coordinates.lng}`
 
+  const faqs = [
+    {
+      q: `Do you supply auto spare parts for vehicles from ${area.name}?`,
+      a: `Yes. ${site.name} in Wah Cantt stocks genuine auto spare parts for all major makes, and drivers from ${area.name} (about ${area.distanceKm} km away, a ${area.driveTimeMin}-minute drive) regularly visit us for parts and servicing. We keep common spares in stock so you can be in and out the same day.`,
+    },
+    {
+      q: `How far is Khan Autos from ${area.name}?`,
+      a: `${site.name} is located on Main GT Road in Wah Cantt, approximately ${area.distanceKm} km from ${area.name} — around a ${area.driveTimeMin}-minute drive. Use the map above or the directions link to reach us directly.`,
+    },
+    {
+      q: `Can you tune or service my car if I live in ${area.name}?`,
+      a: `Absolutely. Our workshop handles general car servicing, engine diagnostics, and performance tuning for vehicles from ${area.name} and all surrounding towns. Call ${site.phone} or message us on WhatsApp to book a slot.`,
+    },
+  ]
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  }
+
   return (
     <>
       <SEO
-        title={`Auto Spare Parts & Car Tuning Near ${area.name}`}
-        description={`${site.name} — Genuine auto spare parts and expert car tuning serving ${area.name}, just ${area.distanceKm} km (${area.driveTimeMin} min drive) from Wah Cantt. Call ${site.phone}.`}
+        title={`${area.keywords[0]} | ${area.name} Car Tuning & Servicing`}
+        description={`${site.name} — ${area.keywords.join(', ')}. Call ${site.phone} for genuine parts, tuning, and servicing just ${area.distanceKm} km from ${area.name}.`}
         path={`/areas/${area.slug}`}
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <section className="area-hero">
@@ -112,6 +142,18 @@ export default function AreaPage() {
             <MapEmbed address={`${site.name}, Wah Cantt, Punjab, Pakistan`} />
           </div>
         </motion.div>
+      </Section>
+
+      {/* FAQ */}
+      <Section title={`Frequently Asked Questions`} subtitle={`Auto parts & car tuning in ${area.name}`}>
+        <div className="area-faq">
+          {faqs.map((faq, i) => (
+            <div className="area-faq__item" key={i}>
+              <h3>{faq.q}</h3>
+              <p>{faq.a}</p>
+            </div>
+          ))}
+        </div>
       </Section>
 
       <Section title="Other Areas We Serve" className="section--alt">

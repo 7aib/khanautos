@@ -98,6 +98,43 @@ export default function Home() {
         }}
       />
 
+      {/* JSON-LD FAQ Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: 'Do you sell genuine auto spare parts in Wah Cantt?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Yes. Khan Autos stocks genuine and OEM-quality spare parts for all major brands including Toyota, Honda, Suzuki, Kia, and more at competitive prices.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Where are you located and what are your opening hours?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: `We are on Main GT Road in Wah Cantt, open ${site.openingHours}. Call ${site.phone} or message us on WhatsApp to confirm a part or book a service.`,
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Do you serve customers from Taxila, Hasan Abdal, and surrounding towns?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Yes. We serve drivers from all 16 surrounding areas including Taxila, Hasan Abdal, Attock, Rawalpindi, and Islamabad.',
+                },
+              },
+            ],
+          }),
+        }}
+      />
+
       {/* Hero */}
       <section className="hero">
         <div className="hero__bg">
@@ -213,6 +250,24 @@ export default function Home() {
       {/* Reviews */}
       <Section title="What Customers Say" subtitle="Real reviews from drivers who trust Khan Autos">
         <ElfsightWidget />
+      </Section>
+
+      {/* Local FAQ */}
+      <Section title="Frequently Asked Questions" subtitle="Answers for drivers around Wah Cantt" className="section--alt">
+        <div className="home-faq">
+          <div className="home-faq__item">
+            <h3>Do you sell genuine auto spare parts in Wah Cantt?</h3>
+            <p>Yes. Khan Autos stocks genuine and OEM-quality spare parts for all major brands — Toyota, Honda, Suzuki, Kia, and more — at competitive prices.</p>
+          </div>
+          <div className="home-faq__item">
+            <h3>Where are you located and what are your hours?</h3>
+            <p>We're on Main GT Road in Wah Cantt. We're open {site.openingHours}. Call {site.phone} or message us on WhatsApp to confirm a part or book a service.</p>
+          </div>
+          <div className="home-faq__item">
+            <h3>Do you serve customers from Taxila, Hasan Abdal, and surrounding towns?</h3>
+            <p>Yes. We regularly serve drivers from all 16 surrounding areas including Taxila, Hasan Abdal, Attock, Rawalpindi, and Islamabad. Browse our Areas We Serve section for directions.</p>
+          </div>
+        </div>
       </Section>
     </>
   )
