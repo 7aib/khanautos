@@ -69,11 +69,11 @@ All business info is in **one file**: `src/data/site.js`
 // src/data/site.js
 const site = {
   name: 'Khan Autos',
-  phone: '+92 300 0000000',    // ← Update here
-  phoneRaw: '923000000000',     // ← For tel: links (no spaces, no +)
-  whatsapp: '923000000000',     // ← For wa.me links
-  email: 'info@khanautos.pk',   // ← Update here
-  openingHours: 'Mon–Sat: 9:00 AM – 8:00 PM',  // ← Update here
+  phone: '+92 3083888872',    // ← Update here
+  phoneRaw: '923083888872',     // ← For tel: links (no spaces, no +)
+  whatsapp: '923083888872',     // ← For wa.me links
+  email: 'contact@khanautos.store',   // ← Update here
+  openingHours: 'Sat-Thur: 9:00 AM – 9:00 PM',  // ← Update here
   // ...
 }
 ```
@@ -98,7 +98,7 @@ Then add the corresponding entry in `public/sitemap.xml`:
 
 ```xml
 <url>
-  <loc>https://khanautos.pk/areas/new-town</loc>
+  <loc>https://khanautos.store/areas/new-town</loc>
   <changefreq>monthly</changefreq>
   <priority>0.7</priority>
 </url>
