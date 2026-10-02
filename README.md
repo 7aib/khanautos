@@ -1,156 +1,122 @@
-# Khan Autos — Auto Spare Parts & Car Tuning Website
+# Khan Autos — Static Automotive Workshop Website
 
-React + Vite website for Khan Autos, a combined auto spare parts shop and car tuning/servicing workshop based in Wah Cantt, Punjab, Pakistan.
+A fast, responsive single-page website for Khan Autos, covering EFI general tuning, vehicle repairs and restoration, and spare parts.
 
-## Quick Start
+## Tech stack
+
+- Plain semantic HTML
+- Plain CSS with design tokens
+- Plain JavaScript with progressive enhancement
+- GSAP + ScrollTrigger loaded as an optional CDN enhancement for the tuning showcase and reveal animations
+- Native IntersectionObserver fallbacks when GSAP is unavailable
+
+## Quick start
 
 ```bash
 npm install
-npm run dev       # Dev server at http://localhost:5173
-npm run build     # Production build to dist/
-npm run preview   # Preview the production build locally
+npm run dev
+npm run build
+npm run preview
 ```
 
-## Adding Real Photos
+The production site is written to `dist/`.
 
-1. Place images in `public/images/` (e.g., `public/images/workshop-front.jpg`)
-2. In the component file, find the placeholder `<div>` and replace it with an `<img>` tag:
+## Business details — `site.config.js`
 
-```jsx
-// Before (placeholder)
-<div className="hero__placeholder">Workshop Photo Placeholder</div>
+**All contact details live in one file: `site.config.js`.** Edit it, then run `npm run build` (or `npm run dev`).
 
-// After (real photo)
-<img
-  src="/images/workshop-front.jpg"
-  alt="Car tuning workshop in Wah Cantt"
-  loading="lazy"
-  width="1200"
-  height="600"
-/>
-```
+A small Vite plugin in `vite.config.js` replaces every `{{site.*}}` token in `index.html` at build time, so the real values are baked into the shipped HTML, the `<title>`, the canonical/Open Graph tags, and the `AutoRepair` JSON-LD. There is no runtime JavaScript involved, so the details are correct for search engines and for visitors with JS disabled.
 
-## Displaying Google Reviews (Elfsight widget)
+The file currently ships pre-filled with the values already curated in `src/data/site.js`. Two things to confirm:
 
-The homepage reviews section uses the **Elfsight Google Reviews** free widget.
+- **Opening hours conflict.** The old static markup said `Mon–Sat, 9:00 AM–7:00 PM`; `src/data/site.js` says `Sat–Thu, 9:00 AM–9:00 PM`. The config uses the `src/data/site.js` version. Change `hours` and `hoursSchema` if that is wrong.
+- **Social links are empty.** Leave a social URL as `''` and its icon stays visible but inert (the link is `href="#"` and click-disabled). Paste a full URL and the link, the `aria-label`, and the JSON-LD `sameAs` list all activate.
 
-### 1. Create the widget on Elfsight
-1. Go to [elfsight.com](https://elfsight.com) and sign up (free plan available)
-2. Choose the **Google Reviews** widget
-3. Connect your Google Business Profile for "Khan Autos"
-4. Customize appearance to match the dark theme
-5. Click **Get the code** — it shows an embed snippet like:
+### Fields
 
-```html
-<div class="elfsight-app-YOUR-APP-ID" data-elfsight-app-lazy data-elfsight-app-alias="google-reviews"></div>
-```
+| Field | Used for |
+| --- | --- |
+| `name`, `tagline`, `slogan` | `<title>`, footer, brand copy |
+| `phone` | Display text, JSON-LD `telephone` |
+| `phoneRaw` | `tel:` links — digits with country code, no spaces |
+| `whatsappNumber` | `wa.me` links — digits with country code, no spaces |
+| `email` | `mailto:` links, contact card, JSON-LD |
+| `addressShort` | Compact spots such as the footer |
+| `addressFull` | Contact card and map panel |
+| `street`, `city`, `region`, `postalCode`, `country` | JSON-LD `PostalAddress` |
+| `mapsUrl` | "Open in Google Maps" button |
+| `hours` | Human-readable opening hours |
+| `hoursSchema` | `openingHours` and `openingHoursSpecification` — `[dayRange, opens, closes]`, 24-hour `HH:MM` |
+| `serviceAreaSummary`, `serviceAreas` | Hero text and JSON-LD `areaServed` |
+| `social.facebook`, `social.instagram`, `social.youtube` | Social icons and JSON-LD `sameAs` |
+| `siteUrl` | Canonical URL, Open Graph URL, JSON-LD `url` |
+| `priceRange`, `foundedYear` | JSON-LD `priceRange`, footer "est." line |
 
-### 2. Add the app ID to the site
+### Safety behaviour
 
-```js
-// src/data/site.js
-elfsight: {
-  appId: 'YOUR-APP-ID',        // ← Paste the app ID from the snippet here
-  alias: 'google-reviews',     // ← If your snippet has data-elfsight-app-alias
-  platformScript: 'https://static.elfsight.com/platform/platform.js',
-  useServiceCore: false,
-},
-```
+Empty values never render as blank space:
 
-The Elfsight platform script loads automatically and the widget appears on the homepage. If `appId` is empty, the widget is skipped entirely.
+- An empty **text** field renders a visible `[ADD PHONE]`-style placeholder.
+- An empty **URL** field renders `#` and stays click-disabled, so a half-finished site never links to a dead target.
+- `npm run build` prints a warning naming any required field that is still empty, and warns about unknown `{{site.*}}` tokens.
 
-> The Elfsight free plan includes a small "Powered by Elfsight" badge — upgrading removes it.
+To add a new field, add it to `site.config.js`, add it to `scalarValues` (or `jsonScalarValues`) in `vite.config.js`, and add an optional `textPlaceholders` entry.
 
-## Updating Phone Number, Business Hours & Contact Info
+## Project structure
 
-All business info is in **one file**: `src/data/site.js`
-
-```js
-// src/data/site.js
-const site = {
-  name: 'Khan Autos',
-  phone: '+92 3083888872',    // ← Update here
-  phoneRaw: '923083888872',     // ← For tel: links (no spaces, no +)
-  whatsapp: '923083888872',     // ← For wa.me links
-  email: 'contact@khanautos.store',   // ← Update here
-  openingHours: 'Sat-Thur: 9:00 AM – 9:00 PM',  // ← Update here
-  // ...
-}
-```
-
-Also update `public/sitemap.xml` with the real domain URL.
-
-## Adding a New Area Page
-
-Edit `src/data/areas.js` and add a new entry to the array:
-
-```js
-{
-  name: 'New Town',
-  slug: 'new-town',              // URL will be /areas/new-town
-  distanceKm: 20,
-  driveTimeMin: 30,
-  intro: 'Unique intro paragraph about servicing near New Town...',
-}
-```
-
-Then add the corresponding entry in `public/sitemap.xml`:
-
-```xml
-<url>
-  <loc>https://khanautos.store/areas/new-town</loc>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
-```
-
-That's it — the area page is generated automatically from the data.
-
-## Project Structure
-
-```
-src/
-  data/
-    site.js          ← Business info (phone, address, hours, etc.)
-    areas.js         ← 16 area pages data (add new towns here)
-  components/
-    Header.jsx       ← Sticky header with nav + CTA buttons
-    Footer.jsx       ← Footer with NAP, links, area list
-    StickyCTA.jsx    ← Mobile bottom bar (Call + WhatsApp)
-    SEO.jsx          ← Per-page meta tags via react-helmet-async
-    MapEmbed.jsx     ← Google Maps embed
-    Logo.jsx         ← Text-based wordmark (swap for image later)
-    ServiceCard.jsx  ← Service card component
-    AreaCard.jsx     ← Area card component
-    Breadcrumb.jsx   ← Breadcrumb navigation
-    Section.jsx      ← Reusable section wrapper
-  pages/
-    Home.jsx         ← Homepage with hero, services, areas, map
-    Services.jsx     ← Detailed services page
-    AreasIndex.jsx   ← Grid of all 16 areas
-    AreaPage.jsx     ← Individual area page (template)
-    About.jsx        ← About the shop
-    Contact.jsx      ← Contact form + map
-  styles/
-    global.css       ← CSS variables, reset, base styles
+```text
+index.html                 Page structure, content, showcase imagery, and {{site.*}} tokens
+site.config.js             Single source of truth for all business details
+styles.css                 Responsive design system and component styles
+script.js                  Navigation, showcase controls, reveals, and form demo handler
 public/
-  sitemap.xml        ← XML sitemap for all routes
-  robots.txt         ← Robots file
+  images/                  Existing workshop and parts imagery
+  favicon.ico              Browser favicon
+  robots.txt               Search-engine crawler instructions
+  sitemap.xml              Generated canonical homepage URL
+scripts/
+  generateSitemap.mjs      Regenerates the sitemap during builds
+vite.config.js             Static Vite build config + the {{site.*}} replacement plugin
+src/                       Previous React source, retained for reference but not loaded
 ```
+
+## Before launch
+
+1. Confirm every value in `site.config.js`, then run `npm run build`. Phone, WhatsApp, address, hours, and email are wired up from that file; a build with any of them blank prints a warning.
+2. Replace the demo workshop, parts, and about images in `public/images/` with final approved photography. The image labels in the page identify the swap points. Replace the showcase center image and all ten step images with licensed photography; each showcase image keeps its intended Unsplash keyword URL in `data-stock-source`, while the active step placeholders use Picsum. The 605A card uses `public/images/cnc-605.png` from the supplied source; confirm reuse rights before launch.
+3. Connect `data-contact-form` in `script.js` to a real email, CRM, or form endpoint. The current handler only shows a local confirmation and does not transmit data.
+4. Replace the placeholder testimonials with verified customer feedback.
+5. Replace the decorative map panel with the approved map embed, or keep it and set `mapsUrl`.
+6. Update `siteUrl` in `site.config.js` if the final domain changes, then run `npm run build`.
+
+
+## Replaceable EFI showcase
+
+The centerpiece is in the `REPLACEABLE SHOWCASE BLOCK` in `index.html`. It currently uses:
+
+- A stock vehicle photo with a local workshop fallback
+- CSS diagnostic-zone overlays with zoom, glow, and scan effects
+- Ten scroll-controlled diagnostic steps with replaceable equipment imagery
+- GSAP ScrollTrigger when available
+- CSS sticky positioning on desktop
+- A swipeable, scroll-snap card sequence on small screens
+- Native IntersectionObserver fallbacks
+
+Replace the photo URLs and `[PLACEHOLDER]` captions with approved, licensed photography before launch. The block can later be replaced with a professional video, Three.js scene, or Spline embed without removing the ten-step text reference section.
 
 ## Deployment
 
-### Vercel / Netlify
-1. Push to GitHub
-2. Connect the repo to Vercel or Netlify
-3. Framework preset: Vite
-4. Build command: `npm run build`
-5. Output directory: `dist`
+### Vercel or Netlify
 
-### cPanel / Traditional Hosting
-1. Run `npm run build`
-2. Upload the contents of `dist/` to your `public_html` folder
-3. Add this `.htaccess` file in `public_html/` for clean URLs:
+- Build command: `npm run build`
+- Output directory: `dist`
+- Framework preset: Vite
+
+### cPanel or traditional hosting
+
+1. Run `npm run build`.
+2. Upload the contents of `dist/` to `public_html`.
+3. Add this rewrite file to `public_html/.htaccess`:
 
 ```apache
 <IfModule mod_rewrite.c>
@@ -163,10 +129,9 @@ public/
 </IfModule>
 ```
 
-## Tech Stack
+## SEO and accessibility
 
-- React 18 + Vite
-- React Router 6 (BrowserRouter)
-- react-helmet-async (SEO meta tags)
-- Framer Motion (subtle animations)
-- Plain CSS with custom properties
+- The page includes title, description, canonical, Open Graph, favicon, and `AutoRepair` structured data, all driven by `site.config.js` at build time.
+- The tuning checklist is rendered as a semantic ordered list for crawlers and assistive technology.
+- The showcase has accessible labels, keyboard-focusable progress controls, reduced-motion support, and a text fallback.
+- Unset social links stay visible but inert instead of pointing at `#`.

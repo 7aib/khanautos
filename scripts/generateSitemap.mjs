@@ -2,7 +2,6 @@ import { writeFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
 import site from '../src/data/site.js'
-import areas from '../src/data/areas.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -10,11 +9,6 @@ const base = site.siteUrl.replace(/\/$/, '')
 
 const routes = [
   { path: '/', priority: 1.0, freq: 'weekly' },
-  { path: '/services', priority: 0.8, freq: 'monthly' },
-  { path: '/areas', priority: 0.8, freq: 'monthly' },
-  ...areas.map((a) => ({ path: `/areas/${a.slug}`, priority: 0.7, freq: 'monthly' })),
-  { path: '/about', priority: 0.5, freq: 'monthly' },
-  { path: '/contact', priority: 0.6, freq: 'monthly' },
 ]
 
 const urlset = routes
